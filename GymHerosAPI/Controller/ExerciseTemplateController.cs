@@ -19,7 +19,7 @@ namespace GymHerosAPI.Controller
             _BLExerciseTemplate = exerciseTemplate;
         }
 
-        #region ListAll
+        #region Get
         [HttpGet]
         [Route("Get")]
         [Authorize]
@@ -53,7 +53,7 @@ namespace GymHerosAPI.Controller
             {
                 var lstExerciseTemplate = _BLExerciseTemplate.ListAll();
 
-                return Ok(new { Status = 200, ExerciseTemplates = lstExerciseTemplate });
+                return Ok(lstExerciseTemplate);
             }
             catch (Exception ex)
             {

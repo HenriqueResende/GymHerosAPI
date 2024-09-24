@@ -19,7 +19,7 @@ namespace GymHerosAPI.Controller
             _BLWorkout = workout;
         }
 
-        #region ListAll
+        #region Get
         [HttpGet]
         [Route("Get")]
         [Authorize]
@@ -53,7 +53,7 @@ namespace GymHerosAPI.Controller
             {
                 var lstWorkout = _BLWorkout.ListAll();
 
-                return Ok(new { Status = 200, Workouts = lstWorkout });
+                return Ok(lstWorkout);
             }
             catch (Exception ex)
             {
