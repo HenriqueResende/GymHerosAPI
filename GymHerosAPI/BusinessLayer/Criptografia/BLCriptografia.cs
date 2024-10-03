@@ -22,7 +22,7 @@ namespace GymHerosAPI.BusinessLayer
 
         #region Hash
         /// <summary>
-        /// Hash
+        /// Criptografa a chave
         /// </summary>
         /// <param name="password"></param>
         /// <returns></returns>

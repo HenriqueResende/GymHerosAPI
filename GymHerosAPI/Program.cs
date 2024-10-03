@@ -79,7 +79,7 @@ builder?.Services.AddCors(option =>
 });
 #endregion
 
-#region AddScoped;
+#region AddScoped
 builder?.Services.AddScoped<IBLCriptografia, BLCriptografia>();
 builder?.Services.AddScoped<IBLLogin, BLLogin>();
 builder?.Services.AddScoped<IBLWorkout, BLWorkout>();
@@ -89,6 +89,7 @@ builder?.Services.AddScoped<IBLSeries, BLSeries>();
 builder?.Services.AddScoped<IBLWorkoutHistory, BLWorkoutHistory>();
 builder?.Services.AddScoped<IBLExerciseHistory, BLExerciseHistory>();
 builder?.Services.AddScoped<IBLSeriesHistory, BLSeriesHistory>();
+builder?.Services.AddScoped<IBLUser, BLUser>();
 
 builder?.Services.AddScoped<IDLUser, DLUser>();
 builder?.Services.AddScoped<ICRUD, CRUD>();

@@ -6,6 +6,6 @@ namespace GymHerosAPI.BusinessLayer
     {
         public UserDto Login(LoginDto login);
 
-        public bool SignIn(UserReg user);
+        public bool SignIn(SignInReg user);
     }
 }

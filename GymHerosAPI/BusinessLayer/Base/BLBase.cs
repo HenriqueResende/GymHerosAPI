@@ -21,47 +21,53 @@ namespace GymHerosAPI.BusinessLayer
 
         #region Get
         /// <summary>
-        /// Get
+        /// Retorna o registro que possui o id especifico
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         public TModelDto Get(int id)
         {
+            //Gera o código SQL e executa o comando (listando apenas um valor)
             var lstWorkout = _CRUD.ListQuery<TModel>($"SELECT TOP 1 * FROM {typeof(TModel).Name} WHERE Id = {id}").FirstOrDefault(Activator.CreateInstance<TModel>());
 
+            //Faz o mapper para transformar a model para a dto (apenas os valores que o usuário visualiza)
             return _Mapper.Map<TModelDto>(lstWorkout);
         }
         #endregion
 
         #region ListAll
         /// <summary>
-        /// ListAll
+        /// Retona todos os registros cadastrados no banco
         /// </summary>
         /// <returns></returns>
         public List<TModelDto> ListAll()
         {
             var where = string.Empty;
 
+            //Caso a tabela tenha um campo para o Id do usuário, lista apenas os registros relacionado ao usuário que fez a requisição
             var properties = typeof(TModel).GetProperties();
             if (properties.Any(x => x.Name.Equals("iduser", StringComparison.CurrentCultureIgnoreCase)))
             {
                 where = $"WHERE IdUser = {_accessor?.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? ""}";
             }
 
+            //Excuta o comando para listar todos os valores
             var lstWorkout = _CRUD.ListQuery<TModel>($"SELECT*FROM {typeof(TModel).Name} {where}");
 
+            //Faz o mapper para transformar a model para a dto (apenas os valores que o usuário visualiza)
             return _Mapper.Map<List<TModelDto>>(lstWorkout);
         }
         #endregion
 
         #region Insert
         /// <summary>
-        /// Insert
+        /// Insere os registros
         /// </summary>
         /// <param name="lstModel"></param>
         /// <returns></returns>
         public int Insert(List<TModelReg> lstModel)
         {
+            //Converte a model de criação (apenas os valores que o usuário pode inserir) para a model "normal"
             var lstInset = _Mapper.Map<List<TModel>>(lstModel);
 
             //Inicia a variável que irá salvar os valores a serem inseridos
@@ -112,16 +118,17 @@ namespace GymHerosAPI.BusinessLayer
             //Remove a ultima ,
             values = values.TrimEnd(',');
 
-            //Monta a query para inserir os valores
+            //Monta a query para inserir os valores, e retorna o ultimo id inserido
             var query = $"INSERT INTO {typeof(TModel).Name} VALUES {values} SELECT SCOPE_IDENTITY()";
 
+            //Executa a query e retona o id
             return _CRUD.ExecQueryReturnId(query);
         }
         #endregion
 
         #region Update
         /// <summary>
-        /// Update
+        /// Atualiza o registro pelo id
         /// </summary>
         /// <param name="lstModel"></param>
         /// <param name="updateToNull"></param>
@@ -175,24 +182,26 @@ namespace GymHerosAPI.BusinessLayer
                 values = values.TrimEnd(',');
 
                 //Monta a query para inserir os valores
-                query += $"UPDATE {typeof(TModel).Name} SET {values} WHERE Id = {id} ";
+                query += $"UPDATE [{typeof(TModel).Name}] SET {values} WHERE Id = {id} ";
             }
 
+            //Executa o comando
             return _CRUD.ExecQuery(query);
         }
         #endregion
 
         #region Delete
         /// <summary>
-        /// Delete
+        /// Deleta os registros pela lista de ids
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
         public bool Delete(List<int> ids)
         {
-            //Cria o comando
+            //Cria o comando para deletar os registros
             var query = $"DELETE FROM {typeof(TModel).Name} WHERE Id IN ({string.Join(',', ids)})";
 
+            //Executa o comando
             return _CRUD.ExecQuery(query);
         }
         #endregion

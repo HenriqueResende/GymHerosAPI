@@ -28,6 +28,9 @@ namespace GymHerosAPI.Model.Mapping
 
             CreateMap<SeriesHistory, SeriesHistoryDto>();
             CreateMap<SeriesHistoryReg, SeriesHistory>();
+
+            CreateMap<User, UserDto>();
+            CreateMap<UserReg, User>();
         }
     }
 }

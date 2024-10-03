@@ -13,6 +13,10 @@ BEGIN
 		,[Password]
 		,[Weight]
 		,[Height]
+		,[Vitality]
+		,[Agility]
+		,[Defense]
+		,[Force]
 	)
      VALUES
     (
@@ -21,5 +25,9 @@ BEGIN
         ,@Password
         ,@Weight
         ,@Height
+		,5
+		,5
+		,5
+		,5
 	)
 END

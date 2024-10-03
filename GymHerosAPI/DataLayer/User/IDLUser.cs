@@ -7,6 +7,6 @@ namespace GymHerosAPI.DataLayer
         User GetUser(string login);
         User GetUser(int id);
 
-        bool InsertUser(UserReg user);
+        bool InsertUser(SignInReg user);
     }
 }

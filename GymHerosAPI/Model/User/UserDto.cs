@@ -14,6 +14,8 @@
 
         public int? Vitality { get; set; }
 
+        public int? Force { get; set; }
+
         public int? Defense { get; set; }
 
         public int? Agility { get; set; }

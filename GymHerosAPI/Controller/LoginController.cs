@@ -49,7 +49,7 @@ namespace GymHerosAPI.Controller
         #region SignIn
         [HttpPost]
         [Route("signin")]
-        public IActionResult SignIn(UserReg usuario)
+        public IActionResult SignIn(SignInReg usuario)
         {
             try
             {

@@ -1,15 +1,20 @@
-﻿namespace GymHerosAPI.Model
+﻿
+namespace GymHerosAPI.Model
 {
     public class UserReg
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public string Login { get; set; }
+        public int? Height { get; set; }
 
-        public string Password { get; set; }
+        public double? Weight { get; set; }
 
-        public int Height { get; set; }
+        public int? Vitality { get; set; }
 
-        public decimal Weight { get; set; }
+        public int? Force { get; set; }
+
+        public int? Defense { get; set; }
+
+        public int? Agility { get; set; }
     }
 }

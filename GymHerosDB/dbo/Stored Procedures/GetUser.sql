@@ -12,7 +12,7 @@ BEGIN
       ,[Weight]  
       ,[Height]  
       ,[Vitality]  
-      ,[Strength]  
+      ,[Force]
       ,[Defense]  
       ,[Agility]  
  FROM [User]  

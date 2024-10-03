@@ -30,9 +30,9 @@ namespace GymHerosAPI.Controller
                 if (!id.HasValue)
                     return Ok(new { Status = 400, Mensagem = "Informe o id." });
 
-                var lstSeries = _BLSeries.Get(id.GetValueOrDefault());
+                var series = _BLSeries.Get(id.GetValueOrDefault());
 
-                return Ok(new { Status = 200, Series = lstSeries });
+                return Ok(series);
             }
             catch (Exception ex)
             {

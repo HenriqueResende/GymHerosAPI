@@ -33,7 +33,7 @@ namespace GymHerosAPI.DataLayer
             return _CRUD.ListProc<User>("GetUser", param).FirstOrDefault() ?? new User();
         }
 
-        public bool InsertUser(UserReg user)
+        public bool InsertUser(SignInReg user)
         {
             var param = new List<Param>
             {
