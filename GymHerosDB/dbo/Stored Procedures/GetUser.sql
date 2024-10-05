@@ -5,16 +5,20 @@ CREATE   PROCEDURE GetUser
 AS  
 BEGIN  
  SELECT TOP 1  
-    [Id]  
+       [Id]  
       ,[Name]  
       ,[Login]  
-      ,[Password]  
+      ,[Password]
+      ,[Image]
       ,[Weight]  
       ,[Height]  
       ,[Vitality]  
       ,[Force]
       ,[Defense]  
-      ,[Agility]  
+      ,[Agility]
+      ,[Coins]
+      ,[Level]
+      ,[BossStage]
  FROM [User]  
  WHERE (@Login IS NULL AND @Id = Id) 
 OR (@Id IS NULL AND @Login = [Login])

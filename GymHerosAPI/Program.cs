@@ -90,6 +90,8 @@ builder?.Services.AddScoped<IBLWorkoutHistory, BLWorkoutHistory>();
 builder?.Services.AddScoped<IBLExerciseHistory, BLExerciseHistory>();
 builder?.Services.AddScoped<IBLSeriesHistory, BLSeriesHistory>();
 builder?.Services.AddScoped<IBLUser, BLUser>();
+builder?.Services.AddScoped<IBLMission, BLMission>();
+builder?.Services.AddScoped<IBLImage, BLImage>();
 
 builder?.Services.AddScoped<IDLUser, DLUser>();
 builder?.Services.AddScoped<ICRUD, CRUD>();

@@ -31,6 +31,12 @@ namespace GymHerosAPI.Model.Mapping
 
             CreateMap<User, UserDto>();
             CreateMap<UserReg, User>();
+
+            CreateMap<Mission, MissionDto>();
+            CreateMap<MissionReg, Mission>();
+
+            CreateMap<Image, ImageDto>();
+            CreateMap<ImageReg, Image>();
         }
     }
 }

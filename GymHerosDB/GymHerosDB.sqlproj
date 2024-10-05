@@ -73,6 +73,8 @@
     <Build Include="dbo\Stored Procedures\InsertUser.sql" />
     <Build Include="dbo\Stored Procedures\InserLogError.sql" />
     <Build Include="dbo\Stored Procedures\GetUser.sql" />
+    <Build Include="dbo\Tables\Mission.sql" />
+    <Build Include="dbo\Tables\Image.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="GymHerosDB.refactorlog" />

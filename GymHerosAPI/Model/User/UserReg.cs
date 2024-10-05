@@ -5,6 +5,8 @@ namespace GymHerosAPI.Model
     {
         public string? Name { get; set; }
 
+        public string? Image { get; set; }
+
         public int? Height { get; set; }
 
         public double? Weight { get; set; }
